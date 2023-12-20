@@ -9,6 +9,11 @@ def find_smallest(arr):
 
 
 def selection_sort(arr):
+    f"""
+    Running time: O(n * n) -> O(n**2)
+    :param arr: Array/list to be sorted
+    :return: Sorted Array/List
+    """
     new_arr = []
     for i in range(len(arr)):
         smallest = find_smallest(arr)
