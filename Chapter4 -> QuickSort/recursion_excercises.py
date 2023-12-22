@@ -40,9 +40,23 @@ def recursive_binary_search(arr, item):
 
     if arr[index] > item: return recursive_binary_search(arr[:index], item)
 
-    if arr[index] < item: return recursive_binary_search(arr[index+1:], item) + len(arr[:index+1])
+    if arr[index] < item: return recursive_binary_search(arr[index + 1:], item) + len(arr[:index + 1])
 
 
 fruits = ['apple', 'banana', 'carrot', 'cucumber', 'mango', 'pawpaw', 'watermelon']
 item_index = recursive_binary_search(fruits, 'pawpaw')
 print(f'Function Item Index: {item_index}, Fruit: {fruits[item_index]}')
+
+
+# Use quick sort algorithm to sort an array
+def quick_sort(arr):
+    if len(arr) < 2:
+        return arr
+    else:
+        pivot = arr[0]
+        less = [i for i in arr[1:] if pivot >= i]
+        greater = [i for i in arr[1:] if pivot < i]
+        return quick_sort(less) + [pivot] + quick_sort(greater)
+
+
+print(quick_sort([1, 4, 52, 3, 7, 1, 99, 0]))
