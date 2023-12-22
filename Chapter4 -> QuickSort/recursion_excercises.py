@@ -29,3 +29,20 @@ def max_num(arr):
 
 
 print(max_num([1, 2, 3, 4, 5, 3, 3, 3]))
+
+
+# Write out a recursive function for the binary search done in chapter 1
+def recursive_binary_search(arr, item):
+    if not arr:
+        return None
+    index = int((len(arr)) / 2)
+    if arr[index] == item: return index
+
+    if arr[index] > item: return recursive_binary_search(arr[:index], item)
+
+    if arr[index] < item: return recursive_binary_search(arr[index+1:], item) + len(arr[:index+1])
+
+
+fruits = ['apple', 'banana', 'carrot', 'cucumber', 'mango', 'pawpaw', 'watermelon']
+item_index = recursive_binary_search(fruits, 'pawpaw')
+print(f'Function Item Index: {item_index}, Fruit: {fruits[item_index]}')
